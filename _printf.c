@@ -22,12 +22,8 @@ int handle_formatting(char specifier, va_list ap, char fallback)
 			length += _raw_print(va_arg(ap, char *));
 			break;
 		case 'i':
-			_print_int(va_arg(ap, int));
-			length++;
-			break;
 		case 'd':
-			_print_double(va_arg(ap, double));
-			length++;
+			length += _print_int(va_arg(ap, int));
 			break;
 		case '%':
 			_putchar(fallback);

@@ -61,7 +61,7 @@ int _pow(int num, int exponent)
 	{
 		return (1);
 	}
-	while (exponent > 0)
+	if (exponent > 0)
 	{
 		return (num * _pow(num, exponent - 1));
 	}
@@ -76,28 +76,40 @@ int _pow(int num, int exponent)
 	* Return: void
 */
 
-void _print_int(int num)
+int _print_int(int num)
 {
 	int base;
-	int length;
 	int curNum;
+	int length = 0;
+	int i = 0;
 
 	if (num == 0)
 	{
 		_putchar('0');
+		length++;
 	}
 	else
 	{
-		length = _get_base(num);
-		while (length > 0)
+		length += _get_base(num);
+		i = length;
+
+		if (num < 0)
 		{
-			base = --length;
+			_putchar('-');
+			num *= -1;
+			length++;
+		}
+		while (i > 0)
+		{
+			base = --i;
 			curNum = num / _pow(10, base);
 
 			num = num - (curNum * _pow(10, base));
 			_putchar('0' + curNum);
 		}
 	}
+
+	return (length);
 }
 
 /**

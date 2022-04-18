@@ -7,6 +7,6 @@ int _printf(const char *format, ...);
 int _raw_print(char *string);
 int _get_base(int num);
 int _pow(int num, int exponent);
-void _print_int(int num);
+int _print_int(int num);
 void _print_double(double num);
 #endif
