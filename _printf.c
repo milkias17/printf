@@ -2,15 +2,29 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+/**
+	* _raw_print - prints string without checking format specifiers
+	* @string: string to be printed
+	* Description: prints string without checking format specifiers
+	* Return: void
+*/
+
 void _raw_print(char *string)
 {
 	int i = 0;
 
-	for(; string[i] != '\0'; i++)
+	for (; string[i] != '\0'; i++)
 	{
 		_putchar(string[i]);
 	}
 }
+
+/**
+	* _get_base - get the base of a number
+	* @num: number to get the base of
+	* Description: get the base of a number
+	* Return: int
+*/
 
 int _get_base(int num)
 {
@@ -19,13 +33,22 @@ int _get_base(int num)
 	if (num == 0)
 		return (length);
 
-	while (num / 10 != 0) {
+	while (num / 10 != 0)
+	{
 		num /= 10;
 		length++;
 	}
 
 	return (length);
 }
+
+/**
+	* _pow - gets the output of the number raised to an exponent
+	* @num: number
+	* @exponent: exponent
+	* Description: gets the output of the number raised to an exponent
+	* Return: int
+*/
 
 int _pow(int num, int exponent)
 {
@@ -41,6 +64,13 @@ int _pow(int num, int exponent)
 	return (-1);
 }
 
+/**
+	* _print_int - prints a number using _putchar
+	* @num: number to print
+	* Description: prints a number using _putchar
+	* Return: void
+*/
+
 void _print_int(int num)
 {
 	int base;
@@ -52,11 +82,12 @@ void _print_int(int num)
 	}
 	else
 	{
-		length = _get_base(num) + 1;;
+		length = _get_base(num) + 1;
 		while (length > 0)
 		{
 			base = _get_base(num);
 			int curNum = num / _pow(10, base);
+
 			num = num - (curNum * _pow(10, base));
 			_putchar('0' + curNum);
 			length--;
@@ -66,6 +97,7 @@ void _print_int(int num)
 
 /**
 	* _printf - prints given string in specified format
+	* @format: string to print with format specifiers included
 	* Description: prints given string in specified format
 	* Return: int
 */
@@ -77,7 +109,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	for(; format[i] != '\0'; i++)
+	for (; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
