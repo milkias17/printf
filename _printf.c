@@ -46,7 +46,7 @@ int _get_base(int num)
 		length++;
 	}
 
-	return (length);
+	return (length + 1);
 }
 
 /**
@@ -90,15 +90,14 @@ void _print_int(int num)
 	}
 	else
 	{
-		length = _get_base(num) + 1;
+		length = _get_base(num);
 		while (length > 0)
 		{
-			base = _get_base(num);
+			base = --length;
 			curNum = num / _pow(10, base);
 
 			num = num - (curNum * _pow(10, base));
 			_putchar('0' + curNum);
-			length--;
 		}
 	}
 }

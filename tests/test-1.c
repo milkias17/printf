@@ -29,6 +29,18 @@ int main ()
 	_printf("Length: [%i, %i]\n", len, len2);
 	printf("Length: [%i, %i]\n", len, len2);
 
+	len = _printf("This is a confusing string %s\n", "This is a %i string", 10);
+	len2 = printf("This is a confusing string %s\n", "This is a %i string", 10);
+
+	_printf("Length: [%i, %i]\n", len, len2);
+	printf("Length: [%i, %i]\n", len, len2);
+
+	len = _printf("This is a test char %c\n", NULL);
+	len2 = printf("This is a test char %c\n", NULL);
+
+	_printf("Length: [%i, %i]\n", len, len2);
+	printf("Length: [%i, %i]\n", len, len2);
+
 	len = _printf("Hello there %s\n", NULL);
 	len2 = printf("Hello there %s\n", NULL);
 
