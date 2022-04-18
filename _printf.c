@@ -75,6 +75,7 @@ void _print_int(int num)
 {
 	int base;
 	int length;
+	int curNum;
 
 	if (num == 0)
 	{
@@ -86,7 +87,7 @@ void _print_int(int num)
 		while (length > 0)
 		{
 			base = _get_base(num);
-			int curNum = num / _pow(10, base);
+			curNum = num / _pow(10, base);
 
 			num = num - (curNum * _pow(10, base));
 			_putchar('0' + curNum);
