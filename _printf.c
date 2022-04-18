@@ -6,17 +6,24 @@
 	* _raw_print - prints string without checking format specifiers
 	* @string: string to be printed
 	* Description: prints string without checking format specifiers
-	* Return: void
+	* Return: length of string
 */
 
-void _raw_print(char *string)
+int _raw_print(char *string)
 {
 	int i = 0;
+
+	if (string == NULL)
+	{
+		string = "(null)";
+	}
 
 	for (; string[i] != '\0'; i++)
 	{
 		_putchar(string[i]);
 	}
+
+	return (i);
 }
 
 /**
@@ -110,6 +117,8 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 	for (; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -123,20 +132,21 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					_putchar(va_arg(ap, int));
-					i++;
 					length++;
 					break;
 				case 's':
-					_raw_print(va_arg(ap, char *));
-					i++;
-					length++;
+					length += _raw_print(va_arg(ap, char *));
 					break;
 				case 'i':
+				case 'd':
 					_print_int(va_arg(ap, int));
 					length++;
-					i++;
 					break;
+				default:
+					_putchar(format[i]);
+					length++;
 			}
+			i++;
 		}
 	}
 
