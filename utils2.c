@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 	* toBinary - converts a decimal to a binary
@@ -22,3 +23,32 @@ int toBinary(unsigned int num)
 
 	return (binaryNum);
 }
+
+/**
+	* printReverseString - prints the given string in reverse
+	* @string: string to be reversed
+	* Description: prints the given string in reverse
+	* Return: int
+*/
+
+int printReverseString(char *string)
+{
+	int i = 0;
+	int length;
+
+	if (string == NULL)
+		string = "(null)";
+
+	while (string[i + 1] != '\0')
+		i++;
+
+	length = i + 1;
+
+	while (i >= 0)
+	{
+		_putchar(string[i--]);
+	}
+
+	return (length);
+}
+

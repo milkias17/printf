@@ -30,6 +30,9 @@ int handle_formatting(char specifier, va_list ap, char fallback)
 			binaryNum = toBinary(va_arg(ap, unsigned int));
 			length += _print_int(binaryNum);
 			break;
+		case 'r':
+			length += printReverseString(va_arg(ap, char *));
+			break;
 		case '%':
 			_putchar(fallback);
 			length++;
