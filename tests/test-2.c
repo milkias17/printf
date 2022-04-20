@@ -23,5 +23,9 @@ int main ()
 
 	_printf("Length: [%i, %i]\n", len, len2);
 	printf("Length: [%i, %i]\n", len, len2);
+
+	_printf("This is a test %d\n", "hello");
+	printf("This is a test %d\n", "hello");
+
 	return 0;
 }

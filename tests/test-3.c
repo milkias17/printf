@@ -3,6 +3,8 @@
 
 int main ()
 {
-	printf("%i\n", _putchar('b'));
+	_printf("%b\n", 98);
+	_printf("%b\n", 294);
+	_printf("%b\n", NULL);
 	return 0;
 }

@@ -11,6 +11,7 @@
 int handle_formatting(char specifier, va_list ap, char fallback)
 {
 	int length = 0;
+	unsigned int binaryNum;
 
 	switch (specifier)
 	{
@@ -24,6 +25,10 @@ int handle_formatting(char specifier, va_list ap, char fallback)
 		case 'i':
 		case 'd':
 			length += _print_int(va_arg(ap, int));
+			break;
+		case 'b':
+			binaryNum = toBinary(va_arg(ap, unsigned int));
+			length += _print_int(binaryNum);
 			break;
 		case '%':
 			_putchar(fallback);

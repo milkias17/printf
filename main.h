@@ -9,4 +9,5 @@ int _get_base(int num);
 int _pow(int num, int exponent);
 int _print_int(int num);
 void _print_double(double num);
+int toBinary(unsigned int num);
 #endif
